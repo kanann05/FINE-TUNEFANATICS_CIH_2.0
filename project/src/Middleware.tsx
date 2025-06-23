@@ -1,8 +1,4 @@
-// export default function Component() {
-//     return(<div>
-//         <button style = {{padding : '10px 15px', fontWeight : '400', borderRadius : '15px', backgroundColor : "rgba(186, 167, 255, 0.5)"}}>Sign in with Trustlens</button>
-//         </div>)
-// }
+
 
 import { Camera, Building2, Calendar, Mail, Phone, User, Users, TestTube } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
