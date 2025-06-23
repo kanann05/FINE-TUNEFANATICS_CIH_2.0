@@ -39,6 +39,15 @@
 
 
 import { useEffect, useState } from "react";
+import CryptoJS from 'crypto-js';
+
+function encryptObject(obj, password) {
+  const jsonString = JSON.stringify(obj);
+  const encrypted = CryptoJS.AES.encrypt(jsonString, password).toString();
+  console.log(encrypted)
+  return encrypted;
+}
+
 
 export default function Component({ apiKey, onAuthSuccess}) {
   useEffect(() => {
@@ -48,12 +57,9 @@ export default function Component({ apiKey, onAuthSuccess}) {
         
         // You can now do something with `event.data.data`, e.g. update state or call backend
         if(onAuthSuccess) {
-          onAuthSuccess(event.data.data)
+          onAuthSuccess(encryptObject(event.data.data, apiKey))
         }
       }
-        if(onAuthSuccess) {
-          onAuthSuccess(event.data.data)
-        }
     };
 
     window.addEventListener("message", handleMessage);
