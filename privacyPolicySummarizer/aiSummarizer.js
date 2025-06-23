@@ -1,7 +1,7 @@
 export async function summarizeWithGemini(text) {
   const apiKey = "AIzaSyAzk_epRibbfcd2_g2ozq36kB-uwGUn9dE";
     
-
+  //aisum
   const body = {
     contents: [{
       parts: [{ text: `Summarize this privacy policy and extract:

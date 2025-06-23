@@ -4,6 +4,7 @@ const knownSDKs = {
 };
 
 chrome.webRequest.onCompleted.addListener(
+  //extension-sdk
     function (details) {
         for (const domain in knownSDKs) {
             if (details.url.includes(domain)) {
@@ -17,7 +18,7 @@ chrome.webRequest.onCompleted.addListener(
                     data.logs.push(newLog);
                     chrome.storage.local.set({ logs: data.logs });
                 });
-                
+
                 break;
             }
         }
