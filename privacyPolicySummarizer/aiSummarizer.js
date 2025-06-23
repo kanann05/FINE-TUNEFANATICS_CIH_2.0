@@ -25,6 +25,6 @@ export async function summarizeWithGemini(text) {
 
   const result = await response.json();
   console.log("Sending to Gemini:", text);
-console.log("Gemini Response:", result);
+  console.log("Gemini Response:", result);
   return result?.candidates?.[0]?.content?.parts?.[0]?.text || "No summary.";
 }

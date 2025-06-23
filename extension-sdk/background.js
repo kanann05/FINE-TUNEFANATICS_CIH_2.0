@@ -17,6 +17,7 @@ chrome.webRequest.onCompleted.addListener(
                     data.logs.push(newLog);
                     chrome.storage.local.set({ logs: data.logs });
                 });
+                
                 break;
             }
         }
