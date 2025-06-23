@@ -3,6 +3,7 @@ const knownSDKs = {
     "google-analytics.com": "Google-analytics", "facebook.net": "Facebook", "amplitude.com": "Amplitude", "segment.io": "Segment", "hotjar.com": "Hotjar", "mixpanel.com": "Mixpanel"
 };
 
+
 chrome.webRequest.onCompleted.addListener(
     function (details) {
         for (const domain in knownSDKs) {
