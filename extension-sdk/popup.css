@@ -1,0 +1,54 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 400px;
+    background: #f9f9f9;
+}
+.header {
+    background: #4CAF50;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-size: 18px;
+}
+.log-container {
+    padding: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+.log-entry {
+    background: white;
+    margin-bottom: 8px;
+    padding: 8px;
+    border-radius: 6px;
+    border-left: 5px solid red;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+.badge {
+    background-color: red;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: bold;
+    margin-right: 8px;
+}
+.method {
+    font-weight: bold;
+    margin-right: 6px;
+}
+.url {
+    display: block;
+    color: #333;
+    font-size: 14px;
+}
+.time {
+    font-size: 12px;
+    color: #666;
+}
+.safe {
+    color: green;
+    font-weight: bold;
+    text-align: center;
+}
