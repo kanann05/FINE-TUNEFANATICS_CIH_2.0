@@ -40,9 +40,7 @@ function getDeviceType() {
 }
 
 
-// console.log("Operating System:", getOS());
-// console.log("Browser:", getBrowser());
-// console.log('Device: ', getDeviceType())
+
 let devEmail = "";
 
 const icons = {
