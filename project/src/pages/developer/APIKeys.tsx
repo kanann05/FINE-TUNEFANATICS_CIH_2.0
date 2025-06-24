@@ -254,6 +254,12 @@ export default function APIKeys() {
                     ))}
                   </div>
                 </div>
+                <div>
+                  <input type='checkbox' className="rounded border-gray-300 text-purple-600 focus:ring-purple-500" />
+                  <span className="ml-2 text-sm text-gray-700">I agree to the Terms and Conditions of TrustLens and User Data Privacy <a href="/PP.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer" className="text-purple-600 hover:underline">Terms of Service</a> and <a href="/TRUSTLENS DEVELOPER DATA ACCESS AND PROCESSING AGREEMENT.pdf" className="text-purple-600 hover:underline">Privacy Policy</a></span>
+                </div>
                 <div className="flex justify-end space-x-3 pt-4">
                   <button
                     type="button"

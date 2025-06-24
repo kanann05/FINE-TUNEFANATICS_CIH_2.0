@@ -18,6 +18,8 @@ export default function RegisterPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [agreed, setAgreed] = useState(false);
+
   function register(email : string, password : string, name : string, role : string) {
   //   if(role == "user") {
       
@@ -61,6 +63,11 @@ export default function RegisterPage() {
     e.preventDefault();
     setError('');
 
+    if (!agreed) {
+      setError('You must agree to the Terms and Privacy Policy');
+      return;
+    }
+
     if (formData.password !== formData.confirmPassword) {
       setError('Passwords do not match');
       return;
@@ -102,7 +109,7 @@ export default function RegisterPage() {
       <div className="max-w-md w-full space-y-8">
         <div className="text-center">
           <div className="flex justify-center">
-            <Shield className="h-12 w-12 text-purple-600" />
+            <Shield className="h-12 w-12 text-purple-600"  />
           </div>
           <h2 className="mt-6 text-3xl font-bold text-gray-900">Create your account</h2>
           <p className="mt-2 text-sm text-gray-600">
@@ -206,6 +213,30 @@ export default function RegisterPage() {
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                 placeholder="Confirm your password"
               />
+            </div>
+
+            {/* Terms and Conditions Agreement */}
+            <div className="flex items-center mb-2">
+              <input
+                id="terms"
+                type="checkbox"
+                checked={agreed}
+                onChange={e => setAgreed(e.target.checked)}
+                required
+                className="h-4 w-4 text-purple-600 border-gray-300 rounded focus:ring-purple-500"
+              />
+              <label htmlFor="terms" className="ml-2 text-sm text-gray-700 select-none">
+                I agree to the{' '} 
+                <a
+                  href="/PP.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-purple-600 hover:underline"
+                >
+                  Privacy Policy
+                </a> of the TrustLens
+                .
+              </label>
             </div>
 
             {error && (
