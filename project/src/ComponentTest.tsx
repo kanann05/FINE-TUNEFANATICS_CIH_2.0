@@ -22,7 +22,7 @@ export default function ComponentTest() {
   }
   return (
     <div style = {{width : 'fit-content'}}>
-      <Component apiKey = {"7XXltVsZTnpf"} onAuthSuccess={handleAuth}/>
+      <Component apiKey = {"e3bgPU6JapJ7"} onAuthSuccess={handleAuth}/>
     </div>
   );
 }
