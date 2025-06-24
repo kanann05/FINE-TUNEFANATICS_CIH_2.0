@@ -197,7 +197,16 @@ const ConnectedApps: React.FC = () => {
                         <span>Visit</span>
                       </button>
                       <button
-                        onClick={() => handleRevokeAccess(app.id)}
+                        onClick={async () => {
+                          alert('Access will be revoked once you continue.')
+                          await fetch('http://localhost:5000/revoke', {
+                            method : 'POST',
+                            headers : {'Content-type' : 'application/json'},
+                            body : JSON.stringify({"userEmail" : app.userEmail, "devEmail" : app.devEmail})
+                          })
+
+                          window.location.reload()
+                        }}
                         className="flex items-center space-x-1 px-3 py-2 text-red-700 border border-red-300 rounded-md hover:bg-red-50 transition-colors"
                       >
                         <X className="h-4 w-4" />
@@ -226,7 +235,23 @@ const ConnectedApps: React.FC = () => {
                     </div>
 
                     <p className="text-sm text-gray-600">
-                      Connected since <span className="font-medium">{app.timestamp}</span>
+                      Connected since <span className="font-medium">
+                        <p className="text-sm font-medium text-gray-900">
+                      {new Date(app.timestamp).toLocaleDateString('en-US', { 
+                        weekday: 'short',
+                        year: 'numeric', 
+                        month: 'short', 
+                        day: 'numeric' 
+                      })}
+                    </p>
+                    <p className="text-xs text-gray-500">
+                      {new Date(app.timestamp).toLocaleTimeString('en-US', { 
+                        hour: '2-digit', 
+                        minute: '2-digit',
+                        second: '2-digit'
+                      })}
+                    </p>
+                      </span>
                     </p>
                   </div>
 

@@ -830,6 +830,27 @@ app.get('/api/dashboard/profile', authenticateToken, (req, res) => {
   });
 });
 
+app.post('/revoke', async (req, res) => {
+  const {userEmail, devEmail} = req.body;
+
+  try {
+    const client = new MongoClient(MONGODB_URI, mongoOptions);
+    await client.connect();
+    const db = client.db("central");
+    const apps = db.collection("apps");
+    const auth = db.collection("auth");
+
+    const res1 =   await apps.deleteMany({"userEmail": userEmail, "devEmail": devEmail});
+    const res2 =   await auth.deleteMany({"userEmail": userEmail, "devEmail": devEmail});
+
+    return res.json({"done" : "yes"})
+  }
+  catch(error) {
+    console.log(error)
+  }
+  return;
+})
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
