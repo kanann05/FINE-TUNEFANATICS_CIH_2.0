@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "Smart SDK Blocker & Detector",
+  "version": "1.0",
+  "description": "Detect and block known third-party SDKs on websites.",
+  "permissions": [
+    "declarativeNetRequest",
+    "declarativeNetRequestWithHostAccess",
+    "webRequest",
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "sdk_blocker",
+        "enabled": true,
+        "path": "rules.json"
+      }
+    ]
+  }
+}
